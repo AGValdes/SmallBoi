@@ -44,7 +44,6 @@ List the functionality of your product:
 - The user can interact with the instance of that game.
 
 ### Data Flow
-Describe the flow of data in your application during our domain modeling and data entity diagram explanation.
 ![image](../images/dataflow.PNG)
 
 ### Non-Functional Requirements
