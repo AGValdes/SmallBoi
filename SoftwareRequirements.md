@@ -44,7 +44,7 @@ List the functionality of your product:
 - The user can interact with the instance of that game.
 
 ### Data Flow
-![image](../images/dataflow.PNG)
+![image](plan.png)
 
 ### Non-Functional Requirements
 - An accessible and attractive design for the UI so that users can easily navigate the game. We will do this by testing our color contrast and font sizes so everything is easily readable.
