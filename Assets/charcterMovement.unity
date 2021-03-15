@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 1442325534}
   m_Layer: 0
   m_Name: p2_temp
-  m_TagString: Player
+  m_TagString: player 2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -461,6 +461,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   speed: 5
+  platformLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  playerLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  enemyLayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!1 &2121073949
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,7 +485,7 @@ GameObject:
   - component: {fileID: 2121073954}
   m_Layer: 8
   m_Name: p1_temp
-  m_TagString: Player
+  m_TagString: player 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
