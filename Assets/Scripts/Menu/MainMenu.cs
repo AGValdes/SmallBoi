@@ -10,6 +10,11 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void MultiplayerScene()
+    {
+        SceneManager.LoadScene("UIScene");
+    }
+
     public void QuitGame()
     {
         Debug.Log("QUIT!");
