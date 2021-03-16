@@ -42,19 +42,23 @@ public class PlayerOneMultiplayer : MonoBehaviour
     }
 
     // may toggle speed run
-    Vector3 move = new Vector3();
-    if (Input.GetKey(KeyCode.LeftArrow))
-    {
-      direction = -1;
-      move = new Vector3(-1.0f, 0.0f, 0.0f);
-    }
-    else if (Input.GetKey(KeyCode.RightArrow))
-    {
-      direction = 1;
-      move = new Vector3(1.0f, 0.0f, 0.0f);
-    }
 
-    this.transform.position = this.transform.position + ((move * Time.deltaTime) * speed);
+    /// JPJ Mode For GetAxis to assess controller support
+    Vector3 move = new Vector3();
+
+
+    //if (Input.GetKey(KeyCode.LeftArrow))
+    //{
+    //  direction = -1;
+    //  move = new Vector3(-1.0f, 0.0f, 0.0f);
+    //}
+    //else if (Input.GetKey(KeyCode.RightArrow))
+    //{
+    //  direction = 1;
+    //  move = new Vector3(1.0f, 0.0f, 0.0f);
+    //}
+
+    this.transform.position = this.transform.position + new Vector3(Input.GetAxis("Horizontal") * speed, 0, 0);
 
     if (Input.GetKeyDown(KeyCode.UpArrow) && IsGrounded())
     {
