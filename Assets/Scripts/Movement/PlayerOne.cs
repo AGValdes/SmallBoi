@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//using UnityStandardAssets.CrossPlatformInput;
 
-public class PlayerTwo : MonoBehaviour
+public class PlayerOne : MonoBehaviour
 {
     public Animator animator;
 
@@ -10,9 +12,11 @@ public class PlayerTwo : MonoBehaviour
 
     private Rigidbody2D rigidBody2D;
     private BoxCollider2D boxCollider2D;
+    private Vector3 newScale;
 
     [SerializeField] private LayerMask playerLayerMask;
     [SerializeField] private LayerMask grounded;
+
 
     private float jumpVelocity = 0;
 
@@ -23,16 +27,17 @@ public class PlayerTwo : MonoBehaviour
         animator = GetComponent<Animator>();
         rigidBody2D = transform.GetComponent<Rigidbody2D>();
         boxCollider2D = transform.GetComponent<BoxCollider2D>();
+        newScale = gameObject.transform.localScale;
+
     }
 
     void Update()
     {
-        //animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
+       // animator.SetFloat("P1Horizontal", direction);
 
 
         //============= Key presses ======================
-
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.DownArrow))
         {
             RaycastHit2D targetObj = GetThrowObj();
             float hor = 7f * direction;
@@ -41,46 +46,64 @@ public class PlayerTwo : MonoBehaviour
             {
                 targetObj.collider.attachedRigidbody.velocity = new Vector2(hor, vert);
             }
-        }
+        } 
 
         // may toggle speed run
         Vector3 move = new Vector3();
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
+            if(newScale.x >= 0)
+            {
+                newScale.x *= -1;
+                gameObject.transform.localScale = newScale;
+            }
             direction = -1;
             move = new Vector3(-1.0f, 0.0f, 0.0f);
         }
-        else if (Input.GetKey(KeyCode.D))
+
+        if (Input.GetKey(KeyCode.RightArrow))
         {
+             if (newScale.x <= 0)
+            {
+                newScale.x *= -1;
+                gameObject.transform.localScale = newScale;
+            }
             direction = 1;
             move = new Vector3(1.0f, 0.0f, 0.0f);
         }
 
+
+
         this.transform.position = this.transform.position + ((move * Time.deltaTime) * speed);
 
-        if (Input.GetKeyDown(KeyCode.W) && IsGrounded())
+        if (Input.GetKeyDown(KeyCode.UpArrow) && IsGrounded())
         {
-            jumpVelocity = 5f;
+            jumpVelocity = 7f;
             rigidBody2D.velocity = Vector2.up * jumpVelocity;
         }
 
     }
 
+    private void FixedUpdate()
+    {
+        
+    }
+
     /// <summary>
-    /// Makes sure the player is not int the air.
+    /// Makes sure the player is not in the air.
     /// </summary>
     /// <returns>bool</returns>
     private bool IsGrounded()
     {
         RaycastHit2D raycastPlatform = Physics2D.BoxCast(boxCollider2D.bounds.center,
             boxCollider2D.bounds.size, 0f, Vector2.down, .1f, grounded);
-        RaycastHit2D raycastPlayer = Physics2D.BoxCast(boxCollider2D.bounds.center,
-        boxCollider2D.bounds.size, 0f, Vector2.down, .1f, grounded);
+        //RaycastHit2D raycastPlayer = Physics2D.BoxCast(boxCollider2D.bounds.center,
+        //boxCollider2D.bounds.size, 0f, Vector2.down, .1f, grounded);
         //raycastHit2D = Physics2D.BoxCast(boxCollider2D.bounds.center,
         //boxCollider2D.bounds.size, 0f, Vector2.down, .1f, enemyLayerMask);
 
-        if (raycastPlatform || raycastPlayer)
-        {                          
+        if(raycastPlatform)
+        {
             return true;
         }
         return false;
@@ -89,9 +112,10 @@ public class PlayerTwo : MonoBehaviour
     /// <summary>
     /// Finds which edge collision occured on and moves child object with parent
     /// </summary>
-    /// <param name="collision">Collision2D</param>
+    /// <param name="collision">Collision2D</param>    
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
         RaycastHit2D raycastHit2D = Physics2D.BoxCast(boxCollider2D.bounds.center,
             boxCollider2D.bounds.size, 0f, Vector2.up, .1f, playerLayerMask);
         if (raycastHit2D)
@@ -99,7 +123,7 @@ public class PlayerTwo : MonoBehaviour
             raycastHit2D.collider.transform.SetParent(transform);
         }
     }
-
+    
     /// <summary>
     /// Removes the connection between parent and child
     /// </summary>
@@ -108,7 +132,7 @@ public class PlayerTwo : MonoBehaviour
     {
         collision2D.collider.transform.parent = null;
     }
-
+    
     /// <summary>
     /// Gets object on top of this object
     /// </summary>
@@ -120,5 +144,4 @@ public class PlayerTwo : MonoBehaviour
 
         return raycastHit2D;
     }
-
 }

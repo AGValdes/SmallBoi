@@ -10,5 +10,7 @@ public class WaterfallEvent : MonoBehaviour
     {
         Debug.Log(collision.gameObject.name + " : " + gameObject.name + " : ");
         collision.gameObject.GetComponent<SpriteRenderer>().sprite = newBoii;
+
+        
     }
 }
