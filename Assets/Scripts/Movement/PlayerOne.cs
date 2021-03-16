@@ -14,8 +14,8 @@ public class PlayerOne : MonoBehaviour
     [SerializeField] private LayerMask playerLayerMask;
     [SerializeField] private LayerMask enemyLayerMask;
 
-    private float jumpVelocity = 0;
 
+    private float jumpVelocity = 0;
     private int direction;
     void Start()
     {
@@ -65,7 +65,7 @@ public class PlayerOne : MonoBehaviour
 
     //================= Methods ====================
     /// <summary>
-    /// Makes sure the player is not int the air.
+    /// Makes sure the player is not in the air.
     /// </summary>
     /// <returns>bool</returns>
     private bool IsGrounded()
@@ -90,7 +90,7 @@ public class PlayerOne : MonoBehaviour
     /// <param name="collision">Collision2D</param>
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("player 2"))
+        if (collision.collider.CompareTag("player 2") || collision.collider.CompareTag("moveable"))
         {
             Collision2DSideType collisionSide = collision.GetContactSide();
             if (collisionSide == Collision2DSideType.Top)
@@ -118,11 +118,7 @@ public class PlayerOne : MonoBehaviour
 
         return raycastHit2D;
     }
-
-
-}
-
-
+}// end of class
 
 
 //===================== Collision side stuff ==========================

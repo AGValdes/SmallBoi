@@ -93,7 +93,7 @@ public class PlayerTwo : MonoBehaviour
     /// <param name="collision">Collision2D</param>
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("player 1"))
+        if (collision.collider.CompareTag("player 1") || collision.collider.CompareTag("moveable"))
         {
             Collision2DSideType collisionSide = collision.GetContactSide();
             Debug.Log(collisionSide.ToString());
