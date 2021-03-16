@@ -6,6 +6,7 @@ TagManager:
   tags:
   - player 1
   - player 2
+  - moveable
   layers:
   - Default
   - TransparentFX
@@ -14,11 +15,11 @@ TagManager:
   - Water
   - UI
   - 
-  - 
-  - player
+  - player1
+  - player2
   - platform
   - enemy
-  - 
+  - moveable
   - 
   - 
   - 
