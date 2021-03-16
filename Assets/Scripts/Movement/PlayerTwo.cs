@@ -50,15 +50,11 @@ public class PlayerTwo : MonoBehaviour
         Vector3 move = new Vector3();
         if (Input.GetKey(KeyCode.A))
         {
-            //===========================
-           
             if(newScale.x >= 0)
             {
                 newScale.x *= -1;
                 gameObject.transform.localScale = newScale;
-
             }
-            //===========================
 
             direction = -1;
             move = new Vector3(-1.0f, 0.0f, 0.0f);
@@ -67,14 +63,11 @@ public class PlayerTwo : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            //===========================
             if (newScale.x <= 0)
             {
                 newScale.x *= -1;
                 gameObject.transform.localScale = newScale;
-
             }
-            //===========================
 
             direction = 1;
             move = new Vector3(1.0f, 0.0f, 0.0f);
