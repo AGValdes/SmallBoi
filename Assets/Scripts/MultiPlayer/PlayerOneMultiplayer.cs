@@ -96,8 +96,8 @@ public class PlayerOneMultiplayer : MonoBehaviour
   {
     if (collision.collider.CompareTag("player 2"))
     {
-      Collision2DSideType collisionSide = collision.GetContactSide();
-      if (collisionSide == Collision2DSideType.Top)
+      Collision2DSideTypeMultiplayer collisionSide = collision.GetContactSideMultiplayer();
+      if (collisionSide == Collision2DSideTypeMultiplayer.Top)
       {
         collision.collider.transform.SetParent(transform);
       }
@@ -138,11 +138,12 @@ public enum Collision2DSideTypeMultiplayer
   Top,
   Bottom,
 }
-public static class Collision2DExtensionsMultiplayer
+
+public static class Collision2DExtensions
 {
-  public static Collision2DSideType GetContactSideMultiplayer(Vector2 max, Vector2 center, Vector2 contact)
+  public static Collision2DSideTypeMultiplayer GetContactSideMultiplayer(Vector2 max, Vector2 center, Vector2 contact)
   {
-    Collision2DSideType side = Collision2DSideType.None;
+    Collision2DSideTypeMultiplayer side = Collision2DSideTypeMultiplayer.None;
     float diagonalAngle = Mathf.Atan2(max.y - center.y, max.x - center.x) * 180 / Mathf.PI;
     float contactAngle = Mathf.Atan2(contact.y - center.y, contact.x - center.x) * 180 / Mathf.PI;
     if (contactAngle < 0)
@@ -158,32 +159,32 @@ public static class Collision2DExtensionsMultiplayer
         ((contactAngle <= diagonalAngle) && (contactAngle >= 0))
     )
     {
-      side = Collision2DSideType.Right;
+      side = Collision2DSideTypeMultiplayer.Right;
     }
     else if (
         ((contactAngle >= 180 - diagonalAngle) && (contactAngle <= 180)) ||
         ((contactAngle >= 180) && (contactAngle <= 180 + diagonalAngle))
     )
     {
-      side = Collision2DSideType.Left;
+      side = Collision2DSideTypeMultiplayer.Left;
     }
     else if (
         ((contactAngle >= diagonalAngle) && (contactAngle <= 90)) ||
         ((contactAngle >= 90) && (contactAngle <= 180 - diagonalAngle))
     )
     {
-      side = Collision2DSideType.Top;
+      side = Collision2DSideTypeMultiplayer.Top;
     }
     else if (
         ((contactAngle >= 180 + diagonalAngle) && (contactAngle <= 270)) ||
         ((contactAngle >= 270) && (contactAngle <= 360 - diagonalAngle))
     )
     {
-      side = Collision2DSideType.Bottom;
+      side = Collision2DSideTypeMultiplayer.Bottom;
     }
     return side.OppositeMultiplayer();
   }
-  public static Collision2DSideType GetContactSideMultiplayer(this Collision2D collision)
+  public static Collision2DSideTypeMultiplayer GetContactSideMultiplayer(this Collision2D collision)
   {
     Vector2 max = collision.collider.bounds.max;
     Vector2 center = collision.collider.bounds.center;
@@ -191,30 +192,31 @@ public static class Collision2DExtensionsMultiplayer
     return GetContactSideMultiplayer(max, center, contact);
   }
 }
-public static class Collision2DSideTypeExtensionsMultiplayer
+
+public static class Collision2DSideTypeMultiplayerClass
 {
-  public static Collision2DSideType OppositeMultiplayer(this Collision2DSideType sideType)
+  public static Collision2DSideTypeMultiplayer OppositeMultiplayer(this Collision2DSideTypeMultiplayer sideType)
   {
-    Collision2DSideType opposite;
-    if (sideType == Collision2DSideType.Left)
+    Collision2DSideTypeMultiplayer opposite;
+    if (sideType == Collision2DSideTypeMultiplayer.Left)
     {
-      opposite = Collision2DSideType.Right;
+      opposite = Collision2DSideTypeMultiplayer.Right;
     }
-    else if (sideType == Collision2DSideType.Right)
+    else if (sideType == Collision2DSideTypeMultiplayer.Right)
     {
-      opposite = Collision2DSideType.Left;
+      opposite = Collision2DSideTypeMultiplayer.Left;
     }
-    else if (sideType == Collision2DSideType.Top)
+    else if (sideType == Collision2DSideTypeMultiplayer.Top)
     {
-      opposite = Collision2DSideType.Bottom;
+      opposite = Collision2DSideTypeMultiplayer.Bottom;
     }
-    else if (sideType == Collision2DSideType.Bottom)
+    else if (sideType == Collision2DSideTypeMultiplayer.Bottom)
     {
-      opposite = Collision2DSideType.Top;
+      opposite = Collision2DSideTypeMultiplayer.Top;
     }
     else
     {
-      opposite = Collision2DSideType.None;
+      opposite = Collision2DSideTypeMultiplayer.None;
     }
     return opposite;
   }

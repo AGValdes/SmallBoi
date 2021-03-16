@@ -95,9 +95,9 @@ public class PlayerTwoMultiplayer : MonoBehaviour
   {
     if (collision.collider.CompareTag("player 1"))
     {
-      Collision2DSideType collisionSide = collision.GetContactSide();
+      Collision2DSideTypeMultiplayer collisionSide = collision.GetContactSideMultiplayer();
       Debug.Log(collisionSide.ToString());
-      if (collisionSide == Collision2DSideType.Top)
+      if (collisionSide == Collision2DSideTypeMultiplayer.Top)
       {
         collision.collider.transform.SetParent(transform);
       }
