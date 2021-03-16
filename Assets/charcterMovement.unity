@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 907445769}
   - component: {fileID: 907445768}
   - component: {fileID: 907445767}
-  m_Layer: 9
+  m_Layer: 24
   m_Name: white_pixel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -627,6 +627,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: p2_temp
       objectReference: {fileID: 0}
+    - target: {fileID: 2956712302678723204, guid: 977ae5330b665b34f9b39b1a72146b0b, type: 3}
+      propertyPath: grounded.m_Bits
+      value: 20971520
+      objectReference: {fileID: 0}
     - target: {fileID: 2956712302678723206, guid: 977ae5330b665b34f9b39b1a72146b0b, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -739,6 +743,14 @@ PrefabInstance:
     - target: {fileID: 4185520839260292021, guid: 3940b7c304ac56f4283852a88f851d13, type: 3}
       propertyPath: m_Constraints
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4185520839260292022, guid: 3940b7c304ac56f4283852a88f851d13, type: 3}
+      propertyPath: grounded.m_Bits
+      value: 16777216
+      objectReference: {fileID: 0}
+    - target: {fileID: 4185520839260292022, guid: 3940b7c304ac56f4283852a88f851d13, type: 3}
+      propertyPath: playerLayerMask.m_Bits
+      value: 8388608
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3940b7c304ac56f4283852a88f851d13, type: 3}

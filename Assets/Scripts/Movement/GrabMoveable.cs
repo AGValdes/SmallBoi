@@ -12,6 +12,10 @@ public class GrabMoveable : MonoBehaviour
     private void Update()
     {
         RaycastHit2D canGrab = Physics2D.Raycast(grabDetect.position, Vector2.right, dist);
+        if (!canGrab)
+        {
+            canGrab = Physics2D.Raycast(grabDetect.position, Vector2.left, dist);
+        }
 
         if (canGrab && canGrab.collider.CompareTag("moveable"))
         {
