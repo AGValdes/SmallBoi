@@ -15,6 +15,7 @@ public class PlayerOne : MonoBehaviour
     [SerializeField] private LayerMask playerLayerMask;
     [SerializeField] private LayerMask grounded;
 
+
     private float jumpVelocity = 0;
 
     private int direction;
