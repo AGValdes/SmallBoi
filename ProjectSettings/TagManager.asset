@@ -4,9 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
+
   - player 1
   - player 2
   - moveable
+  - Bullet
+
   layers:
   - Default
   - TransparentFX
@@ -15,11 +18,13 @@ TagManager:
   - Water
   - UI
   - 
+
   - player1
   - player2
   - platform
   - enemy
   - moveable
+
   - 
   - 
   - 
@@ -44,3 +49,8 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+
+  - name: Background
+    uniqueID: 1482873363
+    locked: 0
+
