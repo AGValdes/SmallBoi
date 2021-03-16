@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityStandardAssets.CrossPlatformInput;
+//using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerOne : MonoBehaviour
 {
@@ -12,6 +12,7 @@ public class PlayerOne : MonoBehaviour
 
     private Rigidbody2D rigidBody2D;
     private BoxCollider2D boxCollider2D;
+    private Vector3 newScale;
 
     [SerializeField] private LayerMask playerLayerMask;
     [SerializeField] private LayerMask grounded;
@@ -26,11 +27,13 @@ public class PlayerOne : MonoBehaviour
         animator = GetComponent<Animator>();
         rigidBody2D = transform.GetComponent<Rigidbody2D>();
         boxCollider2D = transform.GetComponent<BoxCollider2D>();
+        newScale = gameObject.transform.localScale;
+
     }
 
     void Update()
     {
-        animator.SetFloat("P1Horizontal", direction);
+       // animator.SetFloat("P1Horizontal", direction);
 
 
         //============= Key presses ======================
@@ -49,17 +52,24 @@ public class PlayerOne : MonoBehaviour
         Vector3 move = new Vector3();
         if (Input.GetKey(KeyCode.LeftArrow))
         {
+            if(newScale.x >= 0)
+            {
+                newScale.x *= -1;
+                gameObject.transform.localScale = newScale;
+            }
             direction = -1;
             move = new Vector3(-1.0f, 0.0f, 0.0f);
-            animator.SetFloat("P1Horizontal", direction);
-            //animator.Play("Base PlayerOneLeft");
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+
+        if (Input.GetKey(KeyCode.RightArrow))
         {
+             if (newScale.x <= 0)
+            {
+                newScale.x *= -1;
+                gameObject.transform.localScale = newScale;
+            }
             direction = 1;
             move = new Vector3(1.0f, 0.0f, 0.0f);
-            animator.SetFloat("P1Horizontal", direction);
-            //animator.Play("Base PlayerOneRight");
         }
 
 
