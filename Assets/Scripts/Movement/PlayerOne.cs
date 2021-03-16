@@ -118,6 +118,7 @@ public class PlayerOne : MonoBehaviour
 
         RaycastHit2D raycastHit2D = Physics2D.BoxCast(boxCollider2D.bounds.center,
             boxCollider2D.bounds.size, 0f, Vector2.up, .1f, playerLayerMask);
+        
         if (raycastHit2D)
         {
             raycastHit2D.collider.transform.SetParent(transform);
