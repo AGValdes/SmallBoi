@@ -11,28 +11,24 @@ public class PlayerTwo : MonoBehaviour
     private Rigidbody2D rigidBody2D;
     private BoxCollider2D boxCollider2D;
 
-    [SerializeField] private LayerMask platformLayerMask;
     [SerializeField] private LayerMask playerLayerMask;
-    [SerializeField] private LayerMask enemyLayerMask;
-    [SerializeField] private Transform topSensor;
+    [SerializeField] private LayerMask grounded;
 
     private float jumpVelocity = 0;
 
     private int direction;
+
     void Start()
     {
         animator = GetComponent<Animator>();
-
         rigidBody2D = transform.GetComponent<Rigidbody2D>();
         boxCollider2D = transform.GetComponent<BoxCollider2D>();
-
     }
 
     void Update()
     {
         //animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
 
-        
 
         //============= Key presses ======================
 
@@ -41,7 +37,10 @@ public class PlayerTwo : MonoBehaviour
             RaycastHit2D targetObj = GetThrowObj();
             float hor = 7f * direction;
             float vert = 7f;
-            targetObj.collider.attachedRigidbody.velocity = new Vector2(hor, vert);
+            if (targetObj)
+            {
+                targetObj.collider.attachedRigidbody.velocity = new Vector2(hor, vert);
+            }
         }
 
         // may toggle speed run
@@ -64,9 +63,9 @@ public class PlayerTwo : MonoBehaviour
             jumpVelocity = 5f;
             rigidBody2D.velocity = Vector2.up * jumpVelocity;
         }
+
     }
 
-    //================= Methods ====================
     /// <summary>
     /// Makes sure the player is not int the air.
     /// </summary>
@@ -74,14 +73,14 @@ public class PlayerTwo : MonoBehaviour
     private bool IsGrounded()
     {
         RaycastHit2D raycastPlatform = Physics2D.BoxCast(boxCollider2D.bounds.center,
-            boxCollider2D.bounds.size, 0f, Vector2.down, .1f, platformLayerMask);
+            boxCollider2D.bounds.size, 0f, Vector2.down, .1f, grounded);
         RaycastHit2D raycastPlayer = Physics2D.BoxCast(boxCollider2D.bounds.center,
-        boxCollider2D.bounds.size, 0f, Vector2.down, .1f, playerLayerMask);
+        boxCollider2D.bounds.size, 0f, Vector2.down, .1f, grounded);
         //raycastHit2D = Physics2D.BoxCast(boxCollider2D.bounds.center,
         //boxCollider2D.bounds.size, 0f, Vector2.down, .1f, enemyLayerMask);
 
         if (raycastPlatform || raycastPlayer)
-        {
+        {                          
             return true;
         }
         return false;
@@ -93,16 +92,14 @@ public class PlayerTwo : MonoBehaviour
     /// <param name="collision">Collision2D</param>
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("player 1"))
+        RaycastHit2D raycastHit2D = Physics2D.BoxCast(boxCollider2D.bounds.center,
+            boxCollider2D.bounds.size, 0f, Vector2.up, .1f, playerLayerMask);
+        if (raycastHit2D)
         {
-            Collision2DSideType collisionSide = collision.GetContactSide();
-            Debug.Log(collisionSide.ToString());
-            if (collisionSide == Collision2DSideType.Top)
-            {
-                collision.collider.transform.SetParent(transform);
-            }
+            raycastHit2D.collider.transform.SetParent(transform);
         }
     }
+
     /// <summary>
     /// Removes the connection between parent and child
     /// </summary>
@@ -111,6 +108,7 @@ public class PlayerTwo : MonoBehaviour
     {
         collision2D.collider.transform.parent = null;
     }
+
     /// <summary>
     /// Gets object on top of this object
     /// </summary>
@@ -123,12 +121,4 @@ public class PlayerTwo : MonoBehaviour
         return raycastHit2D;
     }
 
-
-
-
 }
-
-
-
-
-//===================== Collision side stuff ==========================
