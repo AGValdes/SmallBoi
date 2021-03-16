@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerOne : MonoBehaviour
 {
@@ -72,6 +73,11 @@ public class PlayerOne : MonoBehaviour
             rigidBody2D.velocity = Vector2.up * jumpVelocity;
         }
 
+    }
+
+    private void FixedUpdate()
+    {
+        
     }
 
     /// <summary>
