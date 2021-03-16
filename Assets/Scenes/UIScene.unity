@@ -327,10 +327,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7155705224443136144}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: 
-        m_Mode: 6
+      - m_Target: {fileID: 7155705224443136145}
+        m_TargetAssemblyTypeName: QuickStartLobbyController, Assembly-CSharp
+        m_MethodName: QuickStart
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -709,7 +709,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &458906231
 GameObject:
@@ -1506,7 +1506,7 @@ RectTransform:
   - {fileID: 881222714}
   - {fileID: 791072968}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2170,9 +2170,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1183621484361438995, guid: bc6b5372cf14e1547906214b52f0b994, type: 3}
+      propertyPath: multiplayerSceneIndex
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2928384477207765369, guid: bc6b5372cf14e1547906214b52f0b994, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2928384477207765369, guid: bc6b5372cf14e1547906214b52f0b994, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2290,7 +2294,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7514414239252500991, guid: 540a1cfc886cbb945a51994d0cd7c815, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7514414239252500991, guid: 540a1cfc886cbb945a51994d0cd7c815, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2351,9 +2355,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e10ed19996061047ab1eb48026bcb46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quickStartButton: {fileID: 0}
-  quickCancelButton: {fileID: 0}
+  quickStartButton: {fileID: 222291544}
+  quickCancelButton: {fileID: 458906231}
   RoomSize: 2
-  joinRoomText: {fileID: 0}
-  statusUpdate: {fileID: 1196338116}
-  numPlayers: {fileID: 601328710}
