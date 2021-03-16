@@ -14,9 +14,7 @@ public class CountDownScript : MonoBehaviour
 
     
     void Start()
-    {
-        
-        
+    {        
         timer = mainTimer;
         doOnce = true;
     }
