@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/UIScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/CharacterMovement-MulitplayTest.unity
+    guid: 28c1d31719ffba84683db6f5196a827c
+  - enabled: 0
+    path: Assets/Scenes/CharacterMovement.unity
+    guid: 3887f63b05b18d1468e3a0302ff1fc59
+  - enabled: 0
     path: Assets/Scenes/GameScene.unity
     guid: a4ca907312c19c448aa760efcf22aedd
   m_configObjects: {}
