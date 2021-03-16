@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+
 
 public class PlayerOneMultiplayer : MonoBehaviour
 {
   public Animator animator;
 
   public float speed = 5f;
-
+  PhotonView photonView;
   private Rigidbody2D rigidBody2D;
   private BoxCollider2D boxCollider2D;
   [SerializeField] private LayerMask platformLayerMask;
@@ -20,7 +22,7 @@ public class PlayerOneMultiplayer : MonoBehaviour
   void Start()
   {
     animator = GetComponent<Animator>();
-
+    photonView = GetComponent<PhotonView>();
     rigidBody2D = transform.GetComponent<Rigidbody2D>();
     boxCollider2D = transform.GetComponent<BoxCollider2D>();
 
@@ -32,41 +34,44 @@ public class PlayerOneMultiplayer : MonoBehaviour
 
 
     //============= Key presses ======================
-
-    if (Input.GetKey(KeyCode.DownArrow))
+    if (photonView.IsMine == true && PhotonNetwork.IsConnected == true)
     {
-      RaycastHit2D targetObj = GetThrowObj();
-      float hor = 7f * direction;
-      float vert = 7f;
-      targetObj.collider.attachedRigidbody.velocity = new Vector2(hor, vert);
-    }
+      if (Input.GetKey(KeyCode.DownArrow))
+      {
+        RaycastHit2D targetObj = GetThrowObj();
+        float hor = 7f * direction;
+        float vert = 7f;
 
-    // may toggle speed run
+        targetObj.collider.attachedRigidbody.velocity = new Vector2(hor, vert);
+      }
 
-    /// JPJ Mode For GetAxis to assess controller support
-    Vector3 move = new Vector3();
+      // may toggle speed run
+
+      /// JPJ Mode For GetAxis to assess controller support
+      Vector3 move = new Vector3();
 
 
-    //if (Input.GetKey(KeyCode.LeftArrow))
-    //{
-    //  direction = -1;
-    //  move = new Vector3(-1.0f, 0.0f, 0.0f);
-    //}
-    //else if (Input.GetKey(KeyCode.RightArrow))
-    //{
-    //  direction = 1;
-    //  move = new Vector3(1.0f, 0.0f, 0.0f);
-    //}
+      //if (Input.GetKey(KeyCode.LeftArrow))
+      //{
+      //  direction = -1;
+      //  move = new Vector3(-1.0f, 0.0f, 0.0f);
+      //}
+      //else if (Input.GetKey(KeyCode.RightArrow))
+      //{
+      //  direction = 1;
+      //  move = new Vector3(1.0f, 0.0f, 0.0f);
+      //}
 
-    this.transform.position = this.transform.position + new Vector3(Input.GetAxis("Horizontal") * speed, 0, 0);
+      this.transform.position = this.transform.position + new Vector3(Input.GetAxis("Horizontal") * speed, 0, 0);
 
-    if (Input.GetKeyDown(KeyCode.UpArrow) && IsGrounded())
-    {
-      jumpVelocity = 5f;
-      rigidBody2D.velocity = Vector2.up * jumpVelocity;
+      if (Input.GetKeyDown(KeyCode.UpArrow) && IsGrounded())
+      {
+        Debug.Log("Jump Attempted");
+        jumpVelocity = 5f;
+        rigidBody2D.velocity = Vector2.up * jumpVelocity;
+      }
     }
   }
-
   //================= Methods ====================
   /// <summary>
   /// Makes sure the player is not int the air.

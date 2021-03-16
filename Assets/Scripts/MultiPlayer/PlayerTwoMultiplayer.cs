@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class PlayerTwoMultiplayer : MonoBehaviour
 {
   public Animator animator;
 
   public float speed = 5f;
-
+  private PhotonView photonView;
   private Rigidbody2D rigidBody2D;
   private BoxCollider2D boxCollider2D;
 
@@ -22,7 +23,7 @@ public class PlayerTwoMultiplayer : MonoBehaviour
   void Start()
   {
     animator = GetComponent<Animator>();
-
+    photonView = GetComponent<PhotonView>();
     rigidBody2D = transform.GetComponent<Rigidbody2D>();
     boxCollider2D = transform.GetComponent<BoxCollider2D>();
 
@@ -30,39 +31,43 @@ public class PlayerTwoMultiplayer : MonoBehaviour
 
   void Update()
   {
-    //animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
-
-
-
-    //============= Key presses ======================
-
-    if (Input.GetKey(KeyCode.S))
+    if (photonView.IsMine == true && PhotonNetwork.IsConnected == true)
     {
-      RaycastHit2D targetObj = GetThrowObj();
-      float hor = 7f * direction;
-      float vert = 7f;
-      targetObj.collider.attachedRigidbody.velocity = new Vector2(hor, vert);
-    }
+      //animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
 
-    // may toggle speed run
-    Vector3 move = new Vector3();
-    if (Input.GetKey(KeyCode.A))
-    {
-      direction = -1;
-      move = new Vector3(-1.0f, 0.0f, 0.0f);
-    }
-    else if (Input.GetKey(KeyCode.D))
-    {
-      direction = 1;
-      move = new Vector3(1.0f, 0.0f, 0.0f);
-    }
 
-    this.transform.position = this.transform.position + ((move * Time.deltaTime) * speed);
 
-    if (Input.GetKeyDown(KeyCode.W) && IsGrounded())
-    {
-      jumpVelocity = 5f;
-      rigidBody2D.velocity = Vector2.up * jumpVelocity;
+      //============= Key presses ======================
+
+      if (Input.GetKey(KeyCode.S))
+      {
+        RaycastHit2D targetObj = GetThrowObj();
+        float hor = 7f * direction;
+        float vert = 7f;
+        targetObj.collider.attachedRigidbody.velocity = new Vector2(hor, vert);
+      }
+
+      // may toggle speed run
+      Vector3 move = new Vector3();
+      if (Input.GetKey(KeyCode.A))
+      {
+        direction = -1;
+        move = new Vector3(-1.0f, 0.0f, 0.0f);
+      }
+      else if (Input.GetKey(KeyCode.D))
+      {
+        direction = 1;
+        move = new Vector3(1.0f, 0.0f, 0.0f);
+      }
+
+      this.transform.position = this.transform.position + ((move * Time.deltaTime) * speed);
+
+      if (Input.GetKeyDown(KeyCode.W) && IsGrounded())
+      {
+        jumpVelocity = 5f;
+        rigidBody2D.velocity = Vector2.up * jumpVelocity;
+
+      }
     }
   }
 

@@ -16,7 +16,8 @@ GameObject:
   - component: {fileID: 245894657501242986}
   - component: {fileID: 8900426561845787462}
   - component: {fileID: -4071481555605154596}
-  m_Layer: 7
+  - component: {fileID: 5252125448538543766}
+  m_Layer: 22
   m_Name: p1_tempMulti
   m_TagString: player 1
   m_Icon: {fileID: 0}
@@ -148,13 +149,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
-  speed: 0.25
+  speed: 0.1
   platformLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 16777216
   playerLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8388608
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 0
@@ -214,3 +215,15 @@ MonoBehaviour:
   m_SynchronizeAngularVelocity: 1
   m_TeleportEnabled: 0
   m_TeleportIfDistanceGreaterThan: 3
+--- !u!114 &5252125448538543766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4185520839260291977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ff2e31fd7f6cce4388be2afcbf826c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -16,7 +16,8 @@ GameObject:
   - component: {fileID: -7356737917186599487}
   - component: {fileID: -8721639747991472129}
   - component: {fileID: 3608008610559463077}
-  m_Layer: 8
+  - component: {fileID: -8599668098628300598}
+  m_Layer: 23
   m_Name: p2_tempMulti
   m_TagString: player 2
   m_Icon: {fileID: 0}
@@ -128,12 +129,12 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!114 &9060072536127215841
 MonoBehaviour:
@@ -148,13 +149,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
-  speed: 5
+  speed: 0.1
   platformLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 16777216
   playerLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4194304
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 0
@@ -180,7 +181,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: -8721639747991472129}
   - {fileID: 3608008610559463077}
-  sceneViewId: 0
+  sceneViewId: 2
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &-8721639747991472129
@@ -215,3 +216,15 @@ MonoBehaviour:
   m_SynchronizeAngularVelocity: 1
   m_TeleportEnabled: 0
   m_TeleportIfDistanceGreaterThan: 3
+--- !u!114 &-8599668098628300598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2956712302678723203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ff2e31fd7f6cce4388be2afcbf826c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
