@@ -1,9 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerOne : MonoBehaviour
+public class PlayerTwo : MonoBehaviour
 {
     public Animator animator;
 
@@ -11,10 +10,11 @@ public class PlayerOne : MonoBehaviour
 
     private Rigidbody2D rigidBody2D;
     private BoxCollider2D boxCollider2D;
+    private Vector3 newScale;
 
     [SerializeField] private LayerMask playerLayerMask;
     [SerializeField] private LayerMask grounded;
-
+    
 
     private float jumpVelocity = 0;
 
@@ -25,16 +25,13 @@ public class PlayerOne : MonoBehaviour
         animator = GetComponent<Animator>();
         rigidBody2D = transform.GetComponent<Rigidbody2D>();
         boxCollider2D = transform.GetComponent<BoxCollider2D>();
+        newScale = gameObject.transform.localScale;
     }
 
     void Update()
     {
-        //animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
-
-
-        //============= Key presses ======================
-
-        if (Input.GetKey(KeyCode.DownArrow))
+ 
+        if (Input.GetKey(KeyCode.S))
         {
             RaycastHit2D targetObj = GetThrowObj();
             float hor = 7f * direction;
@@ -43,24 +40,40 @@ public class PlayerOne : MonoBehaviour
             {
                 targetObj.collider.attachedRigidbody.velocity = new Vector2(hor, vert);
             }
-        } 
+        }
 
         // may toggle speed run
         Vector3 move = new Vector3();
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A))
         {
+
+            if(newScale.x >= 0)
+            {
+                newScale.x *= -1;
+                gameObject.transform.localScale = newScale;
+            }
+
             direction = -1;
             move = new Vector3(-1.0f, 0.0f, 0.0f);
+          
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.D))
         {
+            if (newScale.x <= 0)
+            {
+                newScale.x *= -1;
+                gameObject.transform.localScale = newScale;
+            }
+
             direction = 1;
             move = new Vector3(1.0f, 0.0f, 0.0f);
+
+            
         }
 
         this.transform.position = this.transform.position + ((move * Time.deltaTime) * speed);
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) && IsGrounded())
+        if (Input.GetKeyDown(KeyCode.W) && IsGrounded())
         {
             jumpVelocity = 5f;
             rigidBody2D.velocity = Vector2.up * jumpVelocity;
@@ -81,8 +94,8 @@ public class PlayerOne : MonoBehaviour
         //raycastHit2D = Physics2D.BoxCast(boxCollider2D.bounds.center,
         //boxCollider2D.bounds.size, 0f, Vector2.down, .1f, enemyLayerMask);
 
-        if(raycastPlatform || raycastPlayer)
-        {
+        if (raycastPlatform || raycastPlayer)
+        {                          
             return true;
         }
         return false;
@@ -91,7 +104,7 @@ public class PlayerOne : MonoBehaviour
     /// <summary>
     /// Finds which edge collision occured on and moves child object with parent
     /// </summary>
-    /// <param name="collision">Collision2D</param>    
+    /// <param name="collision">Collision2D</param>
     private void OnCollisionEnter2D(Collision2D collision)
     {
         RaycastHit2D raycastHit2D = Physics2D.BoxCast(boxCollider2D.bounds.center,
@@ -101,7 +114,7 @@ public class PlayerOne : MonoBehaviour
             raycastHit2D.collider.transform.SetParent(transform);
         }
     }
-    
+
     /// <summary>
     /// Removes the connection between parent and child
     /// </summary>
@@ -110,7 +123,7 @@ public class PlayerOne : MonoBehaviour
     {
         collision2D.collider.transform.parent = null;
     }
-    
+
     /// <summary>
     /// Gets object on top of this object
     /// </summary>
