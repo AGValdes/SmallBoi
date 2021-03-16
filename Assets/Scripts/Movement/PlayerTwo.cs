@@ -30,11 +30,7 @@ public class PlayerTwo : MonoBehaviour
 
     void Update()
     {
-        //animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
-
-
-        //============= Key presses ======================
-
+ 
         if (Input.GetKey(KeyCode.S))
         {
             RaycastHit2D targetObj = GetThrowObj();
@@ -50,6 +46,7 @@ public class PlayerTwo : MonoBehaviour
         Vector3 move = new Vector3();
         if (Input.GetKey(KeyCode.A))
         {
+
             if(newScale.x >= 0)
             {
                 newScale.x *= -1;
@@ -58,10 +55,9 @@ public class PlayerTwo : MonoBehaviour
 
             direction = -1;
             move = new Vector3(-1.0f, 0.0f, 0.0f);
-
-           
+          
         }
-        else if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
             if (newScale.x <= 0)
             {
