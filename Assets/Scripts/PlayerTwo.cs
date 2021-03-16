@@ -27,7 +27,7 @@ public class PlayerTwo : MonoBehaviour
 
     void Update()
     {
-        //animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
+        animator.SetFloat("P2Horizontal", direction);
 
 
         //============= Key presses ======================
@@ -49,18 +49,21 @@ public class PlayerTwo : MonoBehaviour
         {
             direction = -1;
             move = new Vector3(-1.0f, 0.0f, 0.0f);
+            animator.SetFloat("P2Horizontal", direction);
         }
         else if (Input.GetKey(KeyCode.D))
         {
             direction = 1;
             move = new Vector3(1.0f, 0.0f, 0.0f);
+            animator.SetFloat("P2Horizontal", direction);
         }
 
+        
         this.transform.position = this.transform.position + ((move * Time.deltaTime) * speed);
 
         if (Input.GetKeyDown(KeyCode.W) && IsGrounded())
         {
-            jumpVelocity = 5f;
+            jumpVelocity = 7f;
             rigidBody2D.velocity = Vector2.up * jumpVelocity;
         }
 

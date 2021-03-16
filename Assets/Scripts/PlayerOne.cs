@@ -29,7 +29,7 @@ public class PlayerOne : MonoBehaviour
 
     void Update()
     {
-        //animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
+        animator.SetFloat("P1Horizontal", direction);
 
 
         //============= Key presses ======================
@@ -51,18 +51,24 @@ public class PlayerOne : MonoBehaviour
         {
             direction = -1;
             move = new Vector3(-1.0f, 0.0f, 0.0f);
+            animator.SetFloat("P1Horizontal", direction);
+            //animator.Play("Base PlayerOneLeft");
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             direction = 1;
             move = new Vector3(1.0f, 0.0f, 0.0f);
+            animator.SetFloat("P1Horizontal", direction);
+            //animator.Play("Base PlayerOneRight");
         }
+
+
 
         this.transform.position = this.transform.position + ((move * Time.deltaTime) * speed);
 
         if (Input.GetKeyDown(KeyCode.UpArrow) && IsGrounded())
         {
-            jumpVelocity = 5f;
+            jumpVelocity = 7f;
             rigidBody2D.velocity = Vector2.up * jumpVelocity;
         }
 
