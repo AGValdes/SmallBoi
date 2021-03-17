@@ -89,12 +89,12 @@ public class PlayerTwo : MonoBehaviour
     {
         RaycastHit2D raycastPlatform = Physics2D.BoxCast(boxCollider2D.bounds.center,
             boxCollider2D.bounds.size, 0f, Vector2.down, .1f, grounded);
-        RaycastHit2D raycastPlayer = Physics2D.BoxCast(boxCollider2D.bounds.center,
-        boxCollider2D.bounds.size, 0f, Vector2.down, .1f, grounded);
+        //RaycastHit2D raycastPlayer = Physics2D.BoxCast(boxCollider2D.bounds.center,
+        //boxCollider2D.bounds.size, 0f, Vector2.down, .1f, grounded);
         //raycastHit2D = Physics2D.BoxCast(boxCollider2D.bounds.center,
         //boxCollider2D.bounds.size, 0f, Vector2.down, .1f, enemyLayerMask);
 
-        if (raycastPlatform || raycastPlayer)
+        if (raycastPlatform)
         {                          
             return true;
         }
