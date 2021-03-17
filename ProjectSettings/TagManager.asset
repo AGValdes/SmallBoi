@@ -9,6 +9,7 @@ TagManager:
   - player 2
   - player 1
   - BlueWaterfall
+  - moveable
   layers:
   - Default
   - TransparentFX
@@ -35,7 +36,7 @@ TagManager:
   - player 1
   - player 2
   - platform
-  - 
+  - baddie
   - 
   - 
   - 
@@ -51,4 +52,7 @@ TagManager:
     locked: 0
   - name: Menu
     uniqueID: 3518655511
+    locked: 0
+  - name: Platforms
+    uniqueID: 754091927
     locked: 0
