@@ -11,9 +11,8 @@ public class QuickStartLobbyController : MonoBehaviourPunCallbacks
   [SerializeField] private GameObject quickStartButton;
   [SerializeField] private GameObject quickCancelButton;
   [SerializeField] private int RoomSize = 2;
-  [SerializeField] private Text joinRoomText;
-  [SerializeField] Text statusUpdate;
-  [SerializeField] Text numPlayers;
+  
+  
   
   void Start()
     {
@@ -32,7 +31,7 @@ public class QuickStartLobbyController : MonoBehaviourPunCallbacks
     {
       nameOfCurrentRoom = PhotonNetwork.CurrentRoom.Name;
     }    
-    numPlayers.text = $"InRoom: {PhotonNetwork.InRoom} InLobby: {PhotonNetwork.InLobby}  Name Of Room: {nameOfCurrentRoom}";   
+    
     }
   public override void OnConnectedToMaster()
   {
@@ -75,7 +74,7 @@ public class QuickStartLobbyController : MonoBehaviourPunCallbacks
     Debug.Log("Current Room: " + photonNet);
     string roomCreation = $"{roomId} {roomCreated}";
     Debug.Log(roomCreation);
-    statusUpdate.text = roomCreation;
+    
 
 
   }
@@ -87,7 +86,7 @@ public class QuickStartLobbyController : MonoBehaviourPunCallbacks
 
   public void JoinRoom()
   {
-    PhotonNetwork.JoinRoom(joinRoomText.ToString());
+    
 
   }
   public void QuickCancel()
