@@ -10,6 +10,7 @@ public class WaterfallEvent : MonoBehaviour
   private Vector3 newScale;
   private BoxCollider2D collider;
   private GameObject waterfall;
+  
 
 
 	private void Start()
@@ -36,13 +37,37 @@ public class WaterfallEvent : MonoBehaviour
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
- 
-    RaycastHit2D raycast = Physics2D.BoxCast(collider.bounds.center, collider.bounds.size, 0f, Vector2.up, .1f, layer);
-   // if(raycast)
-   // {
-      Debug.Log("hellloo");
-      newScale.y = .5f;
-      gameObject.transform.localScale = newScale;
-		//}
+
+		if(collision.gameObject.CompareTag("moveable"))
+		{
+		Debug.Log("hellloo");
+		newScale.y = .2f;
+		newScale.x = 1.037243f;
+		gameObject.transform.GetChild(0).localScale = newScale;
+		gameObject.transform.GetChild(0).position += Vector3.up * 3.29f;
 	}
+}
+
+	private void OnCollisionStay2D(Collision2D collision)
+	{
+    if (collision.gameObject.CompareTag("moveable"))
+    {
+    newScale.y = .2f;
+    newScale.x = 1.037243f;
+    gameObject.transform.GetChild(0).localScale = newScale;
+		}
+   
+  }
+
+	private void OnCollisionExit2D(Collision2D collision)
+	{
+
+    if (collision.gameObject.CompareTag("moveable"))
+    {
+      newScale.y = 1.498861f;
+      newScale.x = 1.037243f;
+      gameObject.transform.GetChild(0).localScale = newScale;
+      gameObject.transform.GetChild(0).position -= Vector3.up * 3.29f;
+    }
+  }
 }

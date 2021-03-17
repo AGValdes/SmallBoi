@@ -18,7 +18,7 @@ public class MovingPlatforms : MonoBehaviour
     posA = movingPlatform.localPosition;
     posB = pivot.localPosition;
     nextPos = posB;
-    speed = 10;
+    speed = 1.3f;
   }
   private void Update()
   {

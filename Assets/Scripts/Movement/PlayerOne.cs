@@ -9,7 +9,7 @@ public class PlayerOne : MonoBehaviour
     public Animator animator;
 
     public float speed = 5f;
-
+ 
     private Rigidbody2D rigidBody2D;
     private BoxCollider2D boxCollider2D;
     private Vector3 newScale;
@@ -17,8 +17,13 @@ public class PlayerOne : MonoBehaviour
     [SerializeField] private LayerMask playerLayerMask;
     [SerializeField] private LayerMask grounded;
      public string color;
-  private float health = 20;
-  private int numberOFStars = 0;
+      private int MaxHealth = 20;
+
+    [SerializeField]
+      public int CurrentHealth = 20;
+
+      public int CurrentNumberOFStars = 0;
+      private int MaxStars;
 
     private float jumpVelocity = 0;
 
@@ -133,7 +138,7 @@ public class PlayerOne : MonoBehaviour
 	/// <param name="collision2D"></param>
 	private void OnCollisionExit2D(Collision2D collision2D)
     {
-        collision2D.collider.transform.parent = null;
+        //collision2D.collider.transform.parent = null;
     }
     
     /// <summary>
@@ -147,4 +152,5 @@ public class PlayerOne : MonoBehaviour
 
         return raycastHit2D;
     }
+
 }
