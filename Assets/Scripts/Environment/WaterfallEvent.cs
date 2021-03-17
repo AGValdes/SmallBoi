@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class WaterfallEvent : MonoBehaviour
 {
-    [SerializeField] private Sprite newBoii;
+  [SerializeField] private Animator newBoii;
+    
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log(collision.gameObject.name + " : " + gameObject.name + " : ");
-        collision.gameObject.GetComponent<SpriteRenderer>().sprite = newBoii;
-
-        
-    }
+  private void OnTriggerEnter2D(Collider2D collision)
+  {
+    Debug.Log(collision.gameObject.name + " : " + gameObject.name + " : ");
+    collision.gameObject.GetComponent<Animator>().Play("Base Layer.BaldyWalk");
+  }
 }
