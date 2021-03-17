@@ -6,10 +6,11 @@ using UnityEngine;
 
 public class GameSetupController : MonoBehaviour
 {
-  [SerializeField] private string playerOnePrefabName;
-  [SerializeField] private string playerOnePrefabFolderName;
+  [SerializeField]private string prefabFolderLocation;
+  [SerializeField] private string playerOnePrefabName; 
   [SerializeField] private string playerTwoPrefabName;
-  [SerializeField]private string playerTwoPrefabFolderName;
+  [SerializeField] private Vector3 playerOneSpawn;
+  [SerializeField] private Vector3 playerTwoSpawn;
 
   // Start is called before the first frame update
   void Start()
@@ -24,12 +25,12 @@ public class GameSetupController : MonoBehaviour
     if(PhotonNetwork.IsMasterClient)
     {
       Debug.Log("I am the current Player 1");
-      PhotonNetwork.Instantiate(Path.Combine(playerOnePrefabFolderName, playerOnePrefabName), Vector3.zero, Quaternion.identity);
+      PhotonNetwork.Instantiate(Path.Combine(prefabFolderLocation, playerOnePrefabName), playerOneSpawn, Quaternion.identity);
     }
     else
     {
       Debug.Log("I am the current Player 2");
-      PhotonNetwork.Instantiate(Path.Combine(playerTwoPrefabFolderName, playerTwoPrefabName), Vector3.zero, Quaternion.identity);
+      PhotonNetwork.Instantiate(Path.Combine(prefabFolderLocation, playerTwoPrefabName), playerTwoSpawn, Quaternion.identity);
     }
   }
 }

@@ -14,9 +14,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: 1246eaf742627aa4bb2d5c0989eabc73
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/UIScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Level1Multiplayer.unity
+    guid: 7ae4a54318563444f988846a33489262
   - enabled: 0
     path: Assets/Scenes/CharacterMovement-MulitplayTest.unity
     guid: 28c1d31719ffba84683db6f5196a827c

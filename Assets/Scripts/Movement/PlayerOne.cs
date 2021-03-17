@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ public class PlayerOne : MonoBehaviour
     public Animator animator;
 
     public float speed = 5f;
-
+    private PhotonView photonView;
     private Rigidbody2D rigidBody2D;
     private BoxCollider2D boxCollider2D;
     private Vector3 newScale;
@@ -29,60 +30,65 @@ public class PlayerOne : MonoBehaviour
         rigidBody2D = transform.GetComponent<Rigidbody2D>();
         boxCollider2D = transform.GetComponent<BoxCollider2D>();
         newScale = gameObject.transform.localScale;
+    photonView = GetComponent<PhotonView>();
 
     }
 
     void Update()
     {
-       // animator.SetFloat("P1Horizontal", direction);
+    // animator.SetFloat("P1Horizontal", direction);
 
 
-        //============= Key presses ======================
-        if (Input.GetKey(KeyCode.DownArrow))
+    //============= Key presses ======================
+    if (photonView.IsMine && PhotonNetwork.IsConnected)
+    {
+
+
+      if (Input.GetKey(KeyCode.DownArrow))
+      {
+        RaycastHit2D targetObj = GetThrowObj();
+        float hor = 7f * direction;
+        float vert = 7f;
+        if (targetObj)
         {
-            RaycastHit2D targetObj = GetThrowObj();
-            float hor = 7f * direction;
-            float vert = 7f;
-            if (targetObj)
-            {
-                targetObj.collider.attachedRigidbody.velocity = new Vector2(hor, vert);
-            }
-        } 
-
-        // may toggle speed run
-        Vector3 move = new Vector3();
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            if(newScale.x >= 0)
-            {
-                newScale.x *= -1;
-                gameObject.transform.localScale = newScale;
-            }
-            direction = -1;
-            move = new Vector3(-1.0f, 0.0f, 0.0f);
+          targetObj.collider.attachedRigidbody.velocity = new Vector2(hor, vert);
         }
+      }
 
-        if (Input.GetKey(KeyCode.RightArrow))
+      // may toggle speed run
+      Vector3 move = new Vector3();
+      if (Input.GetKey(KeyCode.LeftArrow))
+      {
+        if (newScale.x >= 0)
         {
-             if (newScale.x <= 0)
-            {
-                newScale.x *= -1;
-                gameObject.transform.localScale = newScale;
-            }
-            direction = 1;
-            move = new Vector3(1.0f, 0.0f, 0.0f);
+          newScale.x *= -1;
+          gameObject.transform.localScale = newScale;
         }
+        direction = -1;
+        move = new Vector3(-1.0f, 0.0f, 0.0f);
+      }
 
-
-
-        this.transform.position = this.transform.position + ((move * Time.deltaTime) * speed);
-
-        if (Input.GetKeyDown(KeyCode.UpArrow) && IsGrounded())
+      if (Input.GetKey(KeyCode.RightArrow))
+      {
+        if (newScale.x <= 0)
         {
-            jumpVelocity = 7f;
-            rigidBody2D.velocity = Vector2.up * jumpVelocity;
+          newScale.x *= -1;
+          gameObject.transform.localScale = newScale;
         }
+        direction = 1;
+        move = new Vector3(1.0f, 0.0f, 0.0f);
+      }
 
+
+
+      this.transform.position = this.transform.position + ((move * Time.deltaTime) * speed);
+
+      if (Input.GetKeyDown(KeyCode.UpArrow) && IsGrounded())
+      {
+        jumpVelocity = 7f;
+        rigidBody2D.velocity = Vector2.up * jumpVelocity;
+      }
+    }
     }
 
     private void FixedUpdate()

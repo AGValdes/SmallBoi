@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class PlayerTwo : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class PlayerTwo : MonoBehaviour
     private Rigidbody2D rigidBody2D;
     private BoxCollider2D boxCollider2D;
     private Vector3 newScale;
-
+    private PhotonView photonView;
     [SerializeField] private LayerMask playerLayerMask;
     [SerializeField] private LayerMask grounded;
     
@@ -26,60 +27,64 @@ public class PlayerTwo : MonoBehaviour
         rigidBody2D = transform.GetComponent<Rigidbody2D>();
         boxCollider2D = transform.GetComponent<BoxCollider2D>();
         newScale = gameObject.transform.localScale;
+    photonView = GetComponent<PhotonView>();
     }
 
     void Update()
     {
- 
-        if (Input.GetKey(KeyCode.S))
+    if (photonView.IsMine && PhotonNetwork.IsConnected)
+    {
+
+
+      if (Input.GetKey(KeyCode.S))
+      {
+        RaycastHit2D targetObj = GetThrowObj();
+        float hor = 7f * direction;
+        float vert = 7f;
+        if (targetObj)
         {
-            RaycastHit2D targetObj = GetThrowObj();
-            float hor = 7f * direction;
-            float vert = 7f;
-            if (targetObj)
-            {
-                targetObj.collider.attachedRigidbody.velocity = new Vector2(hor, vert);
-            }
+          targetObj.collider.attachedRigidbody.velocity = new Vector2(hor, vert);
+        }
+      }
+
+      // may toggle speed run
+      Vector3 move = new Vector3();
+      if (Input.GetKey(KeyCode.A))
+      {
+
+        if (newScale.x >= 0)
+        {
+          newScale.x *= -1;
+          gameObject.transform.localScale = newScale;
         }
 
-        // may toggle speed run
-        Vector3 move = new Vector3();
-        if (Input.GetKey(KeyCode.A))
+        direction = -1;
+        move = new Vector3(-1.0f, 0.0f, 0.0f);
+
+      }
+      if (Input.GetKey(KeyCode.D))
+      {
+        if (newScale.x <= 0)
         {
-
-            if(newScale.x >= 0)
-            {
-                newScale.x *= -1;
-                gameObject.transform.localScale = newScale;
-            }
-
-            direction = -1;
-            move = new Vector3(-1.0f, 0.0f, 0.0f);
-          
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            if (newScale.x <= 0)
-            {
-                newScale.x *= -1;
-                gameObject.transform.localScale = newScale;
-            }
-
-            direction = 1;
-            move = new Vector3(1.0f, 0.0f, 0.0f);
-
-            
+          newScale.x *= -1;
+          gameObject.transform.localScale = newScale;
         }
 
-        this.transform.position = this.transform.position + ((move * Time.deltaTime) * speed);
+        direction = 1;
+        move = new Vector3(1.0f, 0.0f, 0.0f);
 
-        if (Input.GetKeyDown(KeyCode.W) && IsGrounded())
-        {
-            jumpVelocity = 5f;
-            rigidBody2D.velocity = Vector2.up * jumpVelocity;
-        }
 
+      }
+
+      this.transform.position = this.transform.position + ((move * Time.deltaTime) * speed);
+
+      if (Input.GetKeyDown(KeyCode.W) && IsGrounded())
+      {
+        jumpVelocity = 5f;
+        rigidBody2D.velocity = Vector2.up * jumpVelocity;
+      }
     }
+}
 
     /// <summary>
     /// Makes sure the player is not int the air.
