@@ -19,8 +19,8 @@ public class Item
         switch (itemType)
         {
             default:
-            case ItemType.serotoninCrumb: return ItemAssets.Instance.SerotoninSprite;
-            case ItemType.star: return ItemAssets.Instance.StarSprite;
+            case ItemType.serotoninCrumb: return ItemAssetsLVL2.Instance.SerotoninSprite;
+            case ItemType.star: return ItemAssetsLVL2.Instance.StarSprite;
         }
     }
 }
