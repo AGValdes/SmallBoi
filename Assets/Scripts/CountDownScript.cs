@@ -23,19 +23,19 @@ public class CountDownScript : MonoBehaviour
     void Update()
     {
 
-        //if(doOnce)
-        //{
-        //    timer += Time.deltaTime;
-        //    uiText.text = timer.ToString("f");
-        //}
+		if (doOnce)
+		{
+			timer += Time.deltaTime;
+			uiText.text = timer.ToString("f");
+		}
 
-        //else if (timer <= 0.0f && !doOnce)
-        //{
-        //    canCount = false;
-        //    doOnce = true;
-        //    uiText.text = "0.00";
-        //    timer = 0.0f;
-        //}
-    }
+		else if (timer <= 0.0f && !doOnce)
+		{
+			canCount = false;
+			doOnce = true;
+			uiText.text = "0.00";
+			timer = 0.0f;
+		}
+	}
 
 }

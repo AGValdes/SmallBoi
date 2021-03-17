@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - player 2
   - player 1
+  - BlueWaterfall
   layers:
   - Default
   - TransparentFX
