@@ -7,7 +7,7 @@ public class TempPlayer : MonoBehaviour
     private Rigidbody2D rigidbody;
     [SerializeField] private float speed = 10F;
     [SerializeField] private float jumpSpeed = 10F;
-
+    // [SerializeField] private float HP = 50f;
 
     // Use this for initialization
     void Start()
