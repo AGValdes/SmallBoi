@@ -14,9 +14,11 @@ public class PlayerTwo : MonoBehaviour
 
     [SerializeField] private LayerMask playerLayerMask;
     [SerializeField] private LayerMask grounded;
-    private float health = 20;
-    private int numberOFStars = 0;
-    private float jumpVelocity = 0;
+  private int MaxHealth = 20;
+  public int CurrentHealth = 20;
+  public int CurrentNumberOFStars = 0;
+  private int MaxStars;
+  private float jumpVelocity = 0;
 
     private int direction;
 
