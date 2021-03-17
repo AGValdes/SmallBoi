@@ -9,9 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Main.unity
     guid: 94b630e693a21dd4298018b52f8a5877
   - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: 6c8563f4a64df0c45ab3a0a064a3d7b6
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 1246eaf742627aa4bb2d5c0989eabc73
+  - enabled: 0
     path: Assets/Scenes/UIScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CharacterMovement-MulitplayTest.unity
     guid: 28c1d31719ffba84683db6f5196a827c
   - enabled: 0
