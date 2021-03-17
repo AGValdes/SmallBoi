@@ -17,7 +17,8 @@ public class PlayerOne : MonoBehaviour
     [SerializeField] private LayerMask playerLayerMask;
     [SerializeField] private LayerMask grounded;
      public string color;
-
+  private float health = 20;
+  private int numberOFStars = 0;
 
     private float jumpVelocity = 0;
 
@@ -110,27 +111,27 @@ public class PlayerOne : MonoBehaviour
         return false;
     }
 
-    /// <summary>
-    /// Finds which edge collision occured on and moves child object with parent
-    /// </summary>
-    /// <param name="collision">Collision2D</param>    
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
+	/// <summary>
+	/// Finds which edge collision occured on and moves child object with parent
+	/// </summary>
+	/// <param name="collision">Collision2D</param>    
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
 
-        RaycastHit2D raycastHit2D = Physics2D.BoxCast(boxCollider2D.bounds.center,
-            boxCollider2D.bounds.size, 0f, Vector2.up, .1f, playerLayerMask);
-        
-        if (raycastHit2D)
-        {
-            raycastHit2D.collider.transform.SetParent(transform);
-        }
-    }
-    
-    /// <summary>
-    /// Removes the connection between parent and child
-    /// </summary>
-    /// <param name="collision2D"></param>
-    private void OnCollisionExit2D(Collision2D collision2D)
+		RaycastHit2D raycastHit2D = Physics2D.BoxCast(boxCollider2D.bounds.center,
+				boxCollider2D.bounds.size, 0f, Vector2.up, .1f, playerLayerMask);
+
+		if (raycastHit2D)
+		{
+			raycastHit2D.collider.transform.SetParent(transform);
+		}
+	}
+
+	/// <summary>
+	/// Removes the connection between parent and child
+	/// </summary>
+	/// <param name="collision2D"></param>
+	private void OnCollisionExit2D(Collision2D collision2D)
     {
         collision2D.collider.transform.parent = null;
     }
