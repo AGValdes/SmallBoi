@@ -7,20 +7,27 @@ public class ItemWorld : MonoBehaviour
 
     private Item item;
     private SpriteRenderer spriteRenderer;
-  [SerializeField]
+
   public PlayerOne player1;
-  [SerializeField]
+
   public PlayerTwo player2;
   private HealthBarScript healthbar;
 
-  public void Awake()
+	private void Start()
+	{
+    player1 = gameObject.GetComponent<PlayerOne>();
+    player2 = gameObject.GetComponent<PlayerTwo>();
+  }
+
+	public void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+       
     }
 
     public static ItemWorld SpawnItemWorld(Vector3 position, Item item)
     {
-        Transform transform = Instantiate(ItemAssetsLVL2.Instance.pfItemWorld, position, Quaternion.identity);
+        Transform transform = Instantiate(ItemAssets.Instance.pfItemWorld, position, Quaternion.identity);
 
         ItemWorld itemWorld = transform.GetComponent<ItemWorld>();
         itemWorld.SetItem(item);

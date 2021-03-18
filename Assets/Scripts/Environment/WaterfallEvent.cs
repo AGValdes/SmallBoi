@@ -21,18 +21,37 @@ public class WaterfallEvent : MonoBehaviour
 	private void OnTriggerEnter2D(Collider2D collision)
   {
     Debug.Log(gameObject.name);
+      PlayerOne playerOne = collision.GetComponent<PlayerOne>();
+      PlayerTwo playerTwo = collision.GetComponent<PlayerTwo>();
 
     if (gameObject.CompareTag("BlueWaterfall"))
     {
-      PlayerOne playerOne = collision.GetComponent<PlayerOne>();
-      playerOne.color = "blue";
+      
       Debug.Log(collision.gameObject.name + " : " + gameObject.name + " : ");
-      collision.gameObject.GetComponent<Animator>().Play("Base Layer.PlayerTwoLeft");
+      if (collision.gameObject.CompareTag("player 1"))
+      {
+        playerOne.color = "blue";
+        collision.gameObject.GetComponent<Animator>().Play("Base Layer.PlayerTwoLeft");
+			}
+      if (collision.gameObject.CompareTag("player 2"))
+      {
+        playerTwo.color = "blue";
+        collision.gameObject.GetComponent<Animator>().Play("Base Layer.Player2ColorChange");
+      }
     }
-    //else 
-    //{
-    //  collision.gameObject.GetComponent<Animator>().Play("Base Layer.PlayerOneLeft");
-    //}
+    else 
+    {
+      if (collision.gameObject.CompareTag("player 1"))
+      {
+        playerOne.color = "pink";
+       collision.gameObject.GetComponent<Animator>().Play("Base Layer.PlayerOneLeft");
+			}
+      if (collision.gameObject.CompareTag("player 2"))
+      {
+        playerTwo.color = "pink";
+        collision.gameObject.GetComponent<Animator>().Play("Base Layer.SoftBoiPink");
+      }
+    }
   }
 
 	private void OnCollisionEnter2D(Collision2D collision)
@@ -45,7 +64,9 @@ public class WaterfallEvent : MonoBehaviour
 		newScale.x = 1.037243f;
 		gameObject.transform.GetChild(0).localScale = newScale;
 		gameObject.transform.GetChild(0).position += Vector3.up * 3.29f;
-	}
+
+      gameObject.transform.GetChild(0).GetComponent<BoxCollider2D>().transform.localScale = newScale;
+    }
 }
 
 	private void OnCollisionStay2D(Collision2D collision)
@@ -68,6 +89,7 @@ public class WaterfallEvent : MonoBehaviour
       newScale.x = 1.037243f;
       gameObject.transform.GetChild(0).localScale = newScale;
       gameObject.transform.GetChild(0).position -= Vector3.up * 3.29f;
+      gameObject.transform.GetChild(0).GetComponent<BoxCollider2D>().transform.localScale = newScale;
     }
   }
 }

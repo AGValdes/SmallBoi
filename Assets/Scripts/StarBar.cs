@@ -11,7 +11,7 @@ public class StarBar : MonoBehaviour
     public void SetMaxStars(int stars)
     {
         slider.maxValue = stars;
-        slider.value = stars;
+       
     }
 
     public void SetStar(int stars)

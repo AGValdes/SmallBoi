@@ -17,14 +17,29 @@ public class PlayerOne : MonoBehaviour
     [SerializeField] private LayerMask playerLayerMask;
     [SerializeField] private LayerMask grounded;
      public string color;
+
+/// <summary>
+/// /////////health stuf
+/// </summary>
       private int MaxHealth = 20;
 
-    [SerializeField]
-      public int CurrentHealth = 20;
+       [SerializeField]
+      public int CurrentHealth;
 
-      public int CurrentNumberOFStars = 0;
-      private int MaxStars;
+      [SerializeField]
+      public HealthBarScript healthbar;
 
+      [SerializeField]
+      public StarBar starBar;
+      
+      public int CurrentNumberOFStars;
+      private int MaxStars = 5;
+
+      public PauseScreen pause;
+
+/// <summary>
+/// /////////
+/// </summary>
     private float jumpVelocity = 0;
 
     private int direction;
@@ -35,13 +50,20 @@ public class PlayerOne : MonoBehaviour
         rigidBody2D = transform.GetComponent<Rigidbody2D>();
         boxCollider2D = transform.GetComponent<BoxCollider2D>();
         newScale = gameObject.transform.localScale;
-
+        CurrentHealth = MaxHealth;
+        healthbar.SetMaxHealth(MaxHealth);
+        starBar.SetMaxStars(MaxStars);
+        CurrentNumberOFStars = 0;
     }
 
     void Update()
     {
        // animator.SetFloat("P1Horizontal", direction);
-
+        if(CurrentHealth == 0)
+        {
+           CurrentHealth -= 1;
+           PlayerDeath();
+		    }
 
         //============= Key presses ======================
         if (Input.GetKey(KeyCode.DownArrow))
@@ -120,17 +142,17 @@ public class PlayerOne : MonoBehaviour
 	/// Finds which edge collision occured on and moves child object with parent
 	/// </summary>
 	/// <param name="collision">Collision2D</param>    
-	private void OnCollisionEnter2D(Collision2D collision)
-	{
+	//private void OnCollisionEnter2D(Collision2D collision)
+	//{
 
-		RaycastHit2D raycastHit2D = Physics2D.BoxCast(boxCollider2D.bounds.center,
-				boxCollider2D.bounds.size, 0f, Vector2.up, .1f, playerLayerMask);
+	//	RaycastHit2D raycastHit2D = Physics2D.BoxCast(boxCollider2D.bounds.center,
+	//			boxCollider2D.bounds.size, 0f, Vector2.up, .1f, playerLayerMask);
 
-		if (raycastHit2D)
-		{
-			raycastHit2D.collider.transform.SetParent(transform);
-		}
-	}
+	//	if (raycastHit2D)
+	//	{
+	//		raycastHit2D.collider.transform.SetParent(transform);
+	//	}
+	//}
 
 	/// <summary>
 	/// Removes the connection between parent and child
@@ -152,5 +174,10 @@ public class PlayerOne : MonoBehaviour
 
         return raycastHit2D;
     }
+
+    void PlayerDeath()
+    {
+       pause.DeathPause();
+	  }
 
 }
