@@ -13,6 +13,8 @@ public class DummyPlayer : MonoBehaviour
     public HealthBarScript healthBar;
     public StarBar starbar;
 
+    public PauseScreen pause;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -29,6 +31,12 @@ public class DummyPlayer : MonoBehaviour
             TakeDamage(20);
             GetStar(20);
         }
+        if (currentHealth == 0)
+        {
+            currentHealth -= 1;
+            Debug.Log("You died.");
+            PlayerDeath();
+        }
     }
     
     void TakeDamage(int damage)
@@ -41,5 +49,10 @@ public class DummyPlayer : MonoBehaviour
     {
         currentStars += star;
         starbar.SetStar(currentStars);
+    }
+
+    void PlayerDeath()
+    {
+        pause.DeathPause();
     }
 }
