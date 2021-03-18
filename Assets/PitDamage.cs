@@ -25,7 +25,7 @@ public class PitDamage : MonoBehaviour
 
 		if (collision.gameObject.CompareTag("player 1"))
 		{
-			Debug.Log("Inside If");
+			Debug.Log("Oops you fell");
 			player1.CurrentHealth = 0;
 			player1.healthbar.SetHealth(player1.CurrentHealth);
 		}
