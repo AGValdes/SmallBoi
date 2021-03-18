@@ -256,7 +256,7 @@ TextureImporter:
         height: 110
       alignment: 9
       pivot: {x: 0.5711183, y: 0.5000003}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 15, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -313,9 +313,9 @@ TextureImporter:
       name: MenuAnimation_7
       rect:
         serializedVersion: 2
-        x: 1022
+        x: 1042
         y: 220
-        width: 146.875
+        width: 127
         height: 110
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -357,7 +357,7 @@ TextureImporter:
         serializedVersion: 2
         x: 160
         y: 108
-        width: 147
+        width: 139
         height: 110
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -649,13 +649,13 @@ TextureImporter:
       name: MenuAnimation_23
       rect:
         serializedVersion: 2
-        x: 1028
+        x: 1050
         y: 4
-        width: 147
+        width: 125
         height: 106
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 11, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0

@@ -14,17 +14,35 @@ public class Button : MonoBehaviour
     GameObject door = gameObject.transform.GetChild(1).gameObject;
     player = collision.gameObject.transform.GetComponent<Animator>();
     playerObj = collision.gameObject;
-    PlayerOne playerOne = collision.GetComponent<PlayerOne>();
-  
-    string color = playerOne.color;
-    if (color == "blue")
+    PlayerOne playerOne = collision.gameObject.GetComponent<PlayerOne>();
+    PlayerTwo playerTwo = collision.gameObject.GetComponent<PlayerTwo>();
+    if (playerOne)
     {
-      wall.GetComponent<BoxCollider2D>().enabled = false;
-      gameObject.GetComponent<SpriteRenderer>().sprite = buttonDown;
-      wall.GetComponent<Animator>().enabled = true;
-      door.GetComponent<Animator>().enabled = true;
+    string color1 = playerOne.color;
+      if (color1 == "blue")
+      {
+        Debug.Log("openwall");
+        wall.GetComponent<BoxCollider2D>().enabled = false;
+        gameObject.GetComponent<SpriteRenderer>().sprite = buttonDown;
+        wall.GetComponent<Animator>().enabled = true;
+        door.GetComponent<Animator>().enabled = true;
 
+      }
     }
+    if(playerTwo)
+    {
+    string color2 = playerTwo.color;
+      if (color2 == "blue")
+      {
+        Debug.Log("openwall");
+        wall.GetComponent<BoxCollider2D>().enabled = false;
+        gameObject.GetComponent<SpriteRenderer>().sprite = buttonDown;
+        gameObject.GetComponent<SpriteRenderer>().sprite = buttonDown;
+        wall.GetComponent<Animator>().enabled = true;
+        door.GetComponent<Animator>().enabled = true;
+
+      }
+		}
   }
     // Start is called before the first frame update
     void Start()
