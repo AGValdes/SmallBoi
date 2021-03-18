@@ -64,7 +64,9 @@ public class WaterfallEvent : MonoBehaviour
 		newScale.x = 1.037243f;
 		gameObject.transform.GetChild(0).localScale = newScale;
 		gameObject.transform.GetChild(0).position += Vector3.up * 3.29f;
-	}
+
+      gameObject.transform.GetChild(0).GetComponent<BoxCollider2D>().transform.localScale = newScale;
+    }
 }
 
 	private void OnCollisionStay2D(Collision2D collision)
@@ -87,6 +89,7 @@ public class WaterfallEvent : MonoBehaviour
       newScale.x = 1.037243f;
       gameObject.transform.GetChild(0).localScale = newScale;
       gameObject.transform.GetChild(0).position -= Vector3.up * 3.29f;
+      gameObject.transform.GetChild(0).GetComponent<BoxCollider2D>().transform.localScale = newScale;
     }
   }
 }
