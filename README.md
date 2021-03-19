@@ -71,7 +71,7 @@ Alan Hung, Ameilia Valdes, David Dicken, Jordan Kidwell, Scott Falbo, JP Jones, 
     </td>
   </tr>
 </table>
----
+
 
 
 ## Getting Started
@@ -80,7 +80,7 @@ Alan Hung, Ameilia Valdes, David Dicken, Jordan Kidwell, Scott Falbo, JP Jones, 
 
 or
 - Play through Unity.
-  - `git clone https://github.com/AmeiliaAndTheSmallBois/SmallBoi.git`
+  - `git clone https://github.com/AmeiliaAndTheSmallBois/SmallBoi/tree/main`
   - Play the main scene.
 
 - ### Game Play Controls
