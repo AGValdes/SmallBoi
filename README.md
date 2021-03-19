@@ -14,36 +14,36 @@ Alan Hung, Ameilia Valdes, David Dicken, Jordan Kidwell, Scott Falbo, JP Jones, 
 <table>
   <tr>
     <td>
-      <img src = "./assets/team/alan.png" height=50>
+      <img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/team/alan.png" height=50>
     </td>
     <td>
-      <img src = "./assets/team/amielia.png" height=50>
+      <img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/team/amielia.png" height=50>
     </td>
     <td>
-       <img src = "./assets/team/david.png" height=50>
+       <img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/team/david.png" height=50>
     </td>
     <td>
-       <img src = "./assets/team/jordan.png" height=50>
+       <img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/team/jordan.png" height=50>
     </td>
     <td>
-       <img src = "./assets/team/scott.png" height=50>
+       <img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/team/scott.pngg" height=50>
     </td>
   </tr>
     <tr>
     <td>
-      <img src = "./assets/team/jp.png" height=50>
+      <img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/team/jp.png" height=50>
     </td>
     <td>
-      <img src = "./assets/team/mike.png" height=50>
+      <img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/team/mike.png" height=50>
     </td>
     <td>
-       <img src = "./assets/team/kjell.png" height=50>
+       <img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/team/kjell.png" height=50>
     </td>
     <td>
-       <img src = "./assets/team/krystian.png" height=50>
+       <img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/team/krystian.png" height=50>
     </td>
     <td>
-       <img src = "./assets/team/matthew.png" height=50>
+       <img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/team/matthew.png" height=50>
     </td>
   </tr>
 </table>
