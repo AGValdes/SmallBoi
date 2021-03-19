@@ -26,7 +26,7 @@ Alan Hung, Ameilia Valdes, David Dicken, Jordan Kidwell, Scott Falbo, JP Jones, 
        <img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/team/jordan.png" height=50>
     </td>
     <td>
-       <img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/team/scott.pngg" height=50>
+       <img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/team/scott.png" height=50>
     </td>
   </tr>
     <tr>
@@ -53,11 +53,11 @@ Alan Hung, Ameilia Valdes, David Dicken, Jordan Kidwell, Scott Falbo, JP Jones, 
 ## Tools Used
 
 
-<img src = "./assets/cSharp.png" height=50>
-<img src = "./assets/visualStudio.png" height=50>
-<img src = "./assets/unity.png" height=50>
-<img src = "./assets/illustrator.png" height=50>
-<img src = "./assets/small_logo.png" height=50>
+<img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/cSharp.png" height=50>
+<img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/visualStudio.png" height=50>
+<img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/unity.png" height=50>
+<img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/illustrator.png" height=50>
+<img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/small_logo.png" height=50>
 
 ---
 
@@ -145,19 +145,19 @@ or
 ---
 
 ## Game Play
-<img src = "assets/gameplay_title.png" width=500>
+<img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/gameplay_title.png" width=500>
 
 ### Main Menu
 
-<img src = "./assets/menu.png" width=500>
+<img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/menu.png" width=500>
 
 ### Game Play Instructions
 
-<img src = "./assets/howto.png" width=500>
+<img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/howto.png" width=500>
 
 ### Game Play
 
-<img src = "./assets/gameplay.png" width=500>
+<img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/gameplay.png" width=500>
 
 
 ---
@@ -167,13 +167,13 @@ or
 Small Boi was created using Unity and Visual Studio.  Our scripts are written in C#.  The multiplayer network features are handled with Photon.
 
 
-<img src = "./assets/diagram.png" width=600>
+<img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/diagram.png" width=600>
 
 ### MulitPlayer server flow
-<img src = "./assets/multi-flow.png" width=600>
+<img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/multi-flow.png" width=600>
 
 ### MultiPlayer Player Flow
-<img src = "./assets/player-flow.png" width=600>
+<img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/player-flow.png" width=600>
 
 ---
 
@@ -229,4 +229,4 @@ Small Boi was created using Unity and Visual Studio.  Our scripts are written in
 + [Camera Follow](https://www.youtube.com/watch?v=VJjD1Tp1I8U)
 + [Moving Platforms](https://www.youtube.com/watch?v=4R_AdDK25kQ)
 
-<img src = "./assets/thanks.png">
+<img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/thanks.png">
