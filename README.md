@@ -1,5 +1,5 @@
 # Smol Boii
-<img src = "assets/title.png">
+<img src = "main/assets/title.png">
 
 <br>
 <br>
