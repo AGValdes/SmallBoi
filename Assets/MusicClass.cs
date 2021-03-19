@@ -33,6 +33,7 @@ public class MusicClass : MonoBehaviour
         {
             return;
         }
+    audio.loop = true;
         audio.Play();
     }
 

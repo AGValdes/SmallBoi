@@ -14,7 +14,7 @@ public class MoveText : MonoBehaviour
         button = gameObject.GetComponent<RectTransform>();
         canvas = GameObject.Find("Canvas").GetComponent<RectTransform>();
         startingPosition = transform.position;
-        speed = .12f;
+        //speed = .12f;
     }
 
     public void Update()
