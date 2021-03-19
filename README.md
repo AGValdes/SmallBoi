@@ -77,6 +77,7 @@ Alan Hung, Ameilia Valdes, David Dicken, Jordan Kidwell, Scott Falbo, JP Jones, 
 ## Getting Started
 
 - Download the executable.
+  - [Smol Boii Development Build](https://drive.google.com/file/d/18QmMhxLrKxD9C73WfiB633_9aCOak1-q/view?usp=sharing)
 
 or
 - Play through Unity.
