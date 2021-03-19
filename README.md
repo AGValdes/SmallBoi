@@ -52,13 +52,25 @@ Alan Hung, Ameilia Valdes, David Dicken, Jordan Kidwell, Scott Falbo, JP Jones, 
 
 ## Tools Used
 
-
-<img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/cSharp.png" height=50>
-<img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/visualStudio.png" height=50>
-<img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/unity.png" height=50>
-<img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/illustrator.png" height=50>
-<img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/small_logo.png" height=50>
-
+<table>
+  <tr>
+    <td>
+      <img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/cSharp.png" height=50>
+    </td>
+        <td>
+          <img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/visualStudio.png" height=50>
+    </td>
+        <td>
+          <img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/unity.png" height=50>
+    </td>
+        <td>
+          <img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/illustrator.png" height=50>
+    </td>
+        <td>
+          <img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/small_logo.png" height=50>
+    </td>
+  </tr>
+</table>
 ---
 
 
@@ -200,7 +212,7 @@ Small Boi was created using Unity and Visual Studio.  Our scripts are written in
   - Added a transition to the exit door to move the players to the next level.
   - Attached Audio to the game.
   - Copied and Adapted physics related scripts into RPC scripts, to sync player interactions in multiplayer network play.
-  - 
+  - Compeleted local coop and multiplayer level one.
 
 ---
 
