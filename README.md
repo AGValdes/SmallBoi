@@ -1,5 +1,5 @@
 # Smol Boii
-<img src = "tree/main/Assets/title.png">
+<img src = "https://github.com/AmeiliaAndTheSmallBois/SmallBoi/blob/main/Assets/title.png">
 
 <br>
 <br>
